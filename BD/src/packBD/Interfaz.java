@@ -9,6 +9,8 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import javax.swing.ButtonGroup;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Interfaz {
 
@@ -80,6 +82,10 @@ public class Interfaz {
 		frame.getContentPane().add(rdbtnRegistrartion);
 		
 		JButton btnConsult = new JButton("Consult");
+		btnConsult.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnConsult.setBounds(246, 139, 89, 23);
 		frame.getContentPane().add(btnConsult);
 		
@@ -134,6 +140,10 @@ public class Interfaz {
 		txtCredits.setColumns(10);
 		
 		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAdd.setBounds(246, 244, 89, 23);
 		frame.getContentPane().add(btnAdd);
 		
