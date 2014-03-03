@@ -3,6 +3,7 @@ package packBD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -11,16 +12,17 @@ import javax.swing.JOptionPane;
  */
 public class ConexionDB {
      
-    public static Connection GetConnection()
+    @SuppressWarnings("finally")
+	public static Connection GetConnection(String pUsuario, String pContraseña, String pServidor)
     {
         Connection conexion=null;
      
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            String servidor = "jdbc:mysql://localhost/prueba";
-            String usuarioDB="root";
-            String passwordDB="";
+            String servidor = "jdbc:mysql://"+pServidor;
+            String usuarioDB=pUsuario;
+            String passwordDB=pContraseña;
             conexion= DriverManager.getConnection(servidor,usuarioDB,passwordDB);
         }
         catch(ClassNotFoundException ex)

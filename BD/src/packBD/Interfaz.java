@@ -22,7 +22,8 @@ public class Interfaz {
 	private JTextField txtCredits;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-
+	private String[] aux = null;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -83,7 +84,10 @@ public class Interfaz {
 		
 		JButton btnConsult = new JButton("Consult");
 		btnConsult.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				aux = Data.getData().realizarConsulta(buttonGroup.getSelection().getActionCommand(),buttonGroup_1.getSelection().getActionCommand());
+				
 			}
 		});
 		btnConsult.setBounds(246, 139, 89, 23);
@@ -141,14 +145,17 @@ public class Interfaz {
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				aux = Data.getData().realizarMatricula(txtId.getText(),txtFirstName.getText(),txtLastName.getText(),txtLevel.getText(),txtCredits.getText());
+
 			}
 		});
 		btnAdd.setBounds(246, 244, 89, 23);
 		frame.getContentPane().add(btnAdd);
 		
 		JTextPane txtpnMessages = new JTextPane();
-		txtpnMessages.setText("Messages");
+		txtpnMessages.setText("aux");
 		txtpnMessages.setBounds(10, 382, 358, 112);
 		frame.getContentPane().add(txtpnMessages);
 	}
